@@ -114,7 +114,7 @@ def save_qualifying_loans(qualifying_loans):
     saveFile = questionary.confirm("Do you wish to save the qualifying loans to a file?").ask()
     if saveFile == True:
     #Added csv writer function to save qualifying loans to csv file
-        with open('qualifying_loan.csv', 'w', newline='\n') as csvfile:
+        with open('C:\FinTech\Challenge2\Starter_Code\qualifier\data\output\qualifying_loan.csv', 'w', newline='') as csvfile:
          spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
          spamwriter.writerow(qualifying_loans)
 
