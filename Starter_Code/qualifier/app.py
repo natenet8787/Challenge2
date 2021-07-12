@@ -109,10 +109,14 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
-    with open('qualifying_loan.csv', 'w', newline='\n') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        spamwriter.writerow(qualifying_loans)
+   
+    #prompt user if they would like to save results of qualifying loans
+    saveFile = questionary.confirm("Do you wish to save the qualifying loans to a file?").ask()
+    if saveFile == True:
+    #Added csv writer function to save qualifying loans to csv file
+        with open('qualifying_loan.csv', 'w', newline='\n') as csvfile:
+         spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+         spamwriter.writerow(qualifying_loans)
 
 
 def run():
